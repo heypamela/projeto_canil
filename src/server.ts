@@ -1,10 +1,10 @@
 import express from 'express';
-import dontenv from 'dotenv';
+import dotenv from 'dotenv';
 import mustache from 'mustache-express';
 import path from 'path';
 import mainRoutes from './routes/index';
 
-dontenv.config();
+dotenv.config();
 
 const server = express();
 
@@ -19,7 +19,7 @@ server.use(express.static(path.join(__dirname, '../public')));
 server.use(mainRoutes);
 
 server.use((req, res)=>{
-    res.send('Página não encontrada!');
+    res.render('pages/404');
 });
 
 
